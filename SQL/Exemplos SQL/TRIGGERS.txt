@@ -1,0 +1,41 @@
+
+Neste passo, estamos definindo a estrutura das tabelas. A tabela "pedidos" possui três colunas: "id" (um identificador único), "descricao" (para a descrição do pedido)
+ e "data_pedido" (para armazenar a data e a hora do pedido).
+
+ A tabela "log_pedidos" possui três colunas semelhantes, mas com o propósito de armazenar registros de eventos relacionados aos pedidos.
+
+Agora, criamos uma função trigger chamada registrar_data_pedido.
+ Esta função será chamada sempre que a trigger for acionada (após uma inserção na tabela "pedidos").
+
+Nesta função, estamos fazendo o seguinte:
+
+Definimos a função com o nome registrar_data_pedido().
+
+Declaramos que esta função retorna um objeto do tipo TRIGGER.
+
+Dentro da função, usamos o bloco BEGIN...END para encapsular o código que será executado quando a trigger for acionada.
+
+Dentro do bloco, executamos uma instrução SQL que insere um novo registro na tabela "log_pedidos". Estamos inserindo o ID do pedido recém-inserido (NEW.id) e a data e hora atuais (NOW()).
+
+A função retorna NEW para indicar que o registro original na tabela "pedidos" deve ser mantido.
+
+Passo 3: Criação da Trigger
+Agora, criamos a trigger propriamente dita, chamada trigger_registrar_data_pedido, que é acionada após uma inserção na tabela "pedidos".
+
+Neste passo, estamos fazendo o seguinte:
+
+Criamos a trigger com o nome trigger_registrar_data_pedido.
+
+Especificamos que a trigger é acionada após uma inserção (AFTER INSERT) na tabela "pedidos".
+
+Usamos FOR EACH ROW para indicar que a trigger é executada para cada linha inserida na tabela "pedidos".
+
+A trigger chama a função registrar_data_pedido() usando EXECUTE FUNCTION registrar_data_pedido() sempre que um novo registro é inserido na tabela "pedidos".
+
+Agora, sempre que um novo pedido for inserido na tabela "pedidos", a trigger trigger_registrar_data_pedido será ativada, chamando a função registrar_data_pedido(),
+ que registrará automaticamente a data e a hora desse evento na tabela "log_pedidos".
+
+
+
+
+

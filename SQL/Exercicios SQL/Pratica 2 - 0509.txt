@@ -1,0 +1,22 @@
+1.Buscar compras com seus fornecedores correspondentes
+
+select c.*,f.nome_forn as Fornecedor
+from Compra c
+Inner Join Fornecedor f on c.fk_fornecedor_cod = cod_forn;
+
+2.Buscar todas as compras e seus funcionarios correspondentes, utilizando o left join
+
+select c.*,f.nome_func as Funcionario
+from Compra c
+Left Join Funcionario f on c.fk_funcionario_cod = cod_func;
+
+3.Buscar todas as compras e seus fornecedores correspondentes, utilizando o right join
+
+select c.*,f.nome_forn as Fornecedor
+from Compra c
+Right Join Fornecedor f on c.fk_fornecedor_cod = cod_forn;
+
+4.Contar o número de compras
+
+select count (*) as numero_compra
+from compra;

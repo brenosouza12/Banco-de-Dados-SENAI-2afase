@@ -1,0 +1,4 @@
+id = serial
+caractere = varchar(?)
+numero inteiro = int
+numero real = decimal

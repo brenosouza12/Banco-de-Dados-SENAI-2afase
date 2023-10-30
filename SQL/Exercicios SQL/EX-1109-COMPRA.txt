@@ -1,0 +1,23 @@
+1.  Crie uma consulta SQL que liste o nome e o telefone de cada proprietário, ordenado
+pelo nome:
+  
+   SELECT NOME, TELEFONE_RESIDENCIAL
+   FROM PROPRIETARIO
+   ORDER BY NOME;
+
+ 2. Crie uma consulta SQL que liste todos os serviços realizados pela oficina, ordenado
+pelo nome do serviço:
+
+   SELECT NOME
+   FROM SERVICO
+   ORDER BY NOME;
+
+3.Crie uma consulta SQL que liste todos os produtos vendidos pela oficina, ordenado
+pelo nome do produto:
+
+   SELECT NOME
+   FROM PRODUTO
+   ORDER BY NOME;
+
+4. 
+

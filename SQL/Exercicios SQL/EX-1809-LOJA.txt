@@ -1,0 +1,115 @@
+1.Listar todos os produtos com as respectivas descrições, unidades e valores
+unitários
+
+  - SELECT descricao, unidade, valorUnitario
+    FROM produto;
+
+2.Listar da tabela cliente o CNPJ, nome e endereço de todos os clientes
+
+  - SELECT cnpj, nome, endereco
+    FROM cliente;
+
+3.Listar todo o conteúdo de vendedor, apresentando todas as colunas.
+
+  - SELECT *
+    FROM vendedor;
+
+4.Listar o idpedido, idproduto e a quantidade dos itens do pedido que possuem
+quantidade igual a 35.
+
+  - SELECT idpedido, idproduto, quantidade
+    FROM itempedido
+    WHERE quantidade = 35;
+
+5.Listar os clientes que moram em Niterói.
+
+  - SELECT *
+    FROM cliente
+    WHERE cidade = 'Niterói';
+
+6.Listar os produtos que tenham unidade igual a ‘M’ e valor unitário igual a R$
+1,05.
+
+  - SELECT *
+    FROM produto
+    WHERE unidade = 'M' AND valorUnitario = 1.05;
+
+7.Listar o id e a descrição dos produtos que tenham o valor unitário na faixa de
+R$0,32 até R$ 2,00.
+ 
+  - SELECT idproduto, descricao
+    FROM produto
+    WHERE valorUnitario BETWEEN 0.32 AND 2.00;
+
+8.Listar todos os produtos que tenham o seu nome começando por Q.
+
+  - SELECT *
+    FROM produto
+    WHERE descricao LIKE 'Q%';
+
+9.Listar os vendedores que são da faixa de comissão A e B.
+
+  - SELECT *
+    FROM vendedor
+    WHERE faixaComissao IN ('A', 'B');
+
+10.Listar os clientes que não possuem inscrição estadual.
+
+  - SELECT *
+    FROM cliente
+    WHERE ie IS NULL OR ie = '';
+
+11.Listar em ordem alfabética os vendedores e seus respectivos salários fixos.
+
+  - SELECT nome, salario
+    FROM vendedor
+    ORDER BY nome;
+
+12.Listar os nomes, cidades e estados de todos os clientes, ordenados por
+estado e cidade de forma descendente.
+
+  - SELECT nome, cidade, uf
+    FROM cliente
+    ORDER BY uf DESC, cidade DESC;
+
+13.Listar a descrição e o valor unitário de todos os produtos que tenham a
+unidade ‘KQ’, em ordem de valor unitário ascendente.
+
+  - SELECT descricao, valorUnitario
+    FROM produto
+    WHERE unidade = 'KQ'
+    ORDER BY valorUnitario ASC;
+
+14.Mostrar o maior e o menor salário da tabela vendedores.
+  
+  - SELECT MAX(salario) AS maior_salario, MIN(salario) AS menor_salario
+    FROM vendedor;
+
+15.Mostrar a quantidade total pedida para o produto vinho.
+
+  - SELECT SUM(ip.quantidade) AS quantidade_total
+    FROM itempedido AS ip
+    INNER JOIN produto AS p ON ip.idproduto = p.idproduto
+    WHERE p.descricao = 'Vinho';
+
+16.Qual a média dos salários fixos dos vendedores?
+
+  - SELECT AVG(salario) AS media_salarios_fixos
+    FROM vendedor;
+
+17.Quantos vendedores ganham acima de R$ 2.500,00 de salário fixo?
+
+  - SELECT COUNT(*) AS total_vendedores_acima_de_2500
+    FROM vendedor
+    WHERE salario > 2500.00;
+
+18.Ver os pedidos de cada cliente, listando nome do cliente e número do pedido.
+
+  - SELECT c.nome AS nome_cliente, p.idpedido AS numero_pedido
+    FROM cliente AS c
+    INNER JOIN pedido AS p ON c.idcliente = p.idcliente;
+
+19.Listar os clientes com prazo de entrega superior a 15 dias e que pertençam
+aos estados de São Paulo ou Rio de Janeiro.
+
+  - 
